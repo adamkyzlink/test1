@@ -6,17 +6,12 @@ app.use(express.static("public"))
 
 app.get("/search", async (req, res) => {
     const query = req.query.q
-
     const results = await getResults(query)
-
     res.json(results)
 })
 
-// For local development
-if (process.env.NODE_ENV !== "production") {
-    app.listen(3000, () => {
-        console.log("Server running on http://localhost:3000")
-    })
-}
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/../public/index.html")
+})
 
 module.exports = app
