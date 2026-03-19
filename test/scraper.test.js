@@ -1,4 +1,4 @@
-const { getResults } = require("../scraper")
+﻿const { getResults } = require("../api/scraper")
 
 test("should return results array", async () => {
 
