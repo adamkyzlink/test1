@@ -15,3 +15,10 @@ app.get("/", (req, res) => {
 })
 
 module.exports = app
+
+// For local development
+if (process.env.NODE_ENV !== "production") {
+    app.listen(3000, () => {
+        console.log("Server running on http://localhost:3000")
+    })
+}
